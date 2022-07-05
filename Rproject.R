@@ -99,7 +99,14 @@ Lm_model = lm(Global_Sales ~ NA_Sales + EU_Sales, data= games_sales)
 
 summary(Lm_model)
 
-#predict_games = predict(Lm_model, newdata = games_sales, interval = 'confidence')
-#predict_games
+# This following line of code was seen on the student forum.
+# Create new data frame for years for the three areas of sales
+forecast <- data.frame(Global_Sales = 2021:2023, NA_Sales= 2021:2023,
+                          EU_Sales = 2021:2023)
+
+# I wrote this by myself
+# predict sales for forecast period of 2021 to 2023
+predict_games = predict(Lm_model, newdata = forecast, interval = 'confidence')
+predict_games
 
 
